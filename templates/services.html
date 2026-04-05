@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    /* smooth scroll for anchor links */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Hero Section */
+    .services-hero {
+        background: linear-gradient(rgba(10, 20, 33, 0.85), rgba(10, 20, 33, 0.85)), 
+                    url("{{ url_for('static', filename='images/hero.jpg') }}") center/cover no-repeat;
+        padding: 80px 0;
+        color: white;
+        text-align: center;
+    }
+    
+    /* Service Cards */
+    .service-card {
+        background: white;
+        border: none;
+        border-radius: 0;
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .service-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 30px 60px rgba(0,0,0,0.15) !important;
+    }
+
+    /* Image Header in Card */
+    .service-img-wrapper {
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .service-img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+    }
+
+    .service-card:hover .service-img-wrapper img {
+        transform: scale(1.1);
+    }
+
+    /* Icon Overlay */
+    .service-icon-float {
+        position: absolute;
+        bottom: -25px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        background: #c5a028;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: #0a1421;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        z-index: 2;
+    }
+
+    .feature-list li {
+        margin-bottom: 12px;
+        list-style: none;
+        padding-left: 0;
+        font-size: 0.95rem;
+    }
+
+    .feature-list li::before {
+        content: "✓";
+        color: #c5a028;
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    .text-gold { color: #c5a028 !important; }
+    .bg-navy { background-color: #0a1421 !important; }
+    
+    /* Anchor offset for sticky navbar */
+    section[id] {
+        scroll-margin-top: 100px;
+    }
+</style>
+
+<section class="services-hero">
+    <div class="container animate__animated animate__fadeIn">
+        <h1 class="display-3 fw-bold mb-3">PROFESSIONAL <span class="text-gold">PROTECTION</span></h1>
+        <p class="lead mx-auto opacity-75" style="max-width: 700px;">"Led by veterans and driven by precision, our elite personnel provide comprehensive coverage across Houston. Whether on Foot Patrol for detailed vigilance, Rapid Response Vehicles for perimeter defense, or Mobile Scooters for high-speed accessibility, we ensure your assets are protected by every means necessary."</p>
+    </div>
+</section>
+
+<section class="py-5 bg-light">
+    <div class="container py-5">
+        <div class="row g-4">
+            
+            <div class="col-lg-6" data-aos="fade-up">
+                <div class="card service-card shadow-sm h-100">
+                    <div class="service-img-wrapper">
+                        <img src="{{ url_for('static', filename='images/service1.png') }}" alt="Armed Security">
+                    </div>
+                    <div class="card-body p-4 d-flex flex-column">
+                        <h3 class="fw-bold mb-3 text-navy">Armed Security</h3>
+                        <p class="text-muted flex-grow-1" style="display: -webkit-box;  -webkit-box-orient: vertical; overflow: hidden;">
+                            The City Guard provides elite, Texas-licensed Commissioned Officers for locations requiring a decisive security presence. Our armed division is comprised of individuals who have met the highest standards of tactical proficiency and ethical conduct, specifically recruited from veteran backgrounds to ensure disciplined protection.
+                        </p>
+                        <div class="mt-3">
+                            <a href="{{ url_for('service_detail', service_key='armed') }}" class="btn btn-gold w-100 py-2 fw-bold">KNOW MORE</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="card service-card shadow-sm h-100">
+                    <div class="service-img-wrapper">
+                        <img src="{{ url_for('static', filename='images/service2.png') }}" alt="Unarmed Security">
+                    </div>
+                    <div class="card-body p-4 d-flex flex-column">
+                        <h3 class="fw-bold mb-3 text-navy">Unarmed Security</h3>
+                        <p class="text-muted flex-grow-1" style="display: -webkit-box;  -webkit-box-orient: vertical; overflow: hidden;">
+                            Our Unarmed division focuses on high-visibility deterrence and professional customer service. Ideal for corporate environments, retail hubs, and residential areas where a polite but vigilant presence is required. We prioritize de-escalation and keen observation to maintain a safe and welcoming atmosphere for your clients.
+                        </p>
+                        <div class="mt-3">
+                            <a href="{{ url_for('service_detail', service_key='unarmed') }}" class="btn btn-gold w-100 py-2 fw-bold">KNOW MORE</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</section>
+
+
+
+<section class="py-5 text-center" data-aos="zoom-in">
+    <div class="container py-5">
+        <h2 class="fw-bold mb-4">Ready to secure your peace of mind?</h2>
+        <a href="{{ url_for('contact') }}" class="btn btn-gold btn-lg px-5 py-3 fw-bold" style="background-color: #c5a028; color: #0a1421; border-radius: 0; text-decoration: none;">BOOK A FREE RISK ASSESSMENT</a>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,271 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .service-card {
+        height: 400px;
+        transition: transform 0.3s ease;
+    }
+    .service-card img {
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+    .service-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, rgba(11, 26, 42, 0.9) 20%, rgba(11, 26, 42, 0.2) 100%);
+        transition: background 0.3s ease;
+    }
+    .service-card:hover img {
+        transform: scale(1.1);
+    }
+    .service-card:hover {
+        transform: translateY(-10px);
+    }
+    .btn-gold {
+        background-color: #c5a028;
+        color: #0b1a2a;
+        border: none;
+    }
+    .btn-gold:hover {
+        background-color: #0b1a2a;
+        color: #c5a028;
+        border: 1px solid #c5a028;
+    }
+    /* 1. HERO SECTION SYSTEM */
+    .hero-container {
+        position: relative;
+        width: 100vw;
+        height: 85vh;
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        background-color: #0a1421;
+    }
+
+    /* THE IMAGE LOADED VIA JINJA IN CSS */
+    .hero-bg {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background-image: url("{{ url_for('static', filename='images/hero.jpg') }}");
+        background-size: cover;
+        background-position: center;
+        z-index: 1;
+        animation: kenBurns 20s infinite alternate;
+    }
+
+    .hero-overlay {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(75deg, rgba(10, 20, 33, 0.9) 0%, rgba(10, 20, 33, 0.5) 100%);
+        z-index: 2;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 3;
+    }
+
+    /* 2. BRAND COLORS */
+    .text-gold { color: #c5a028 !important; }
+    .bg-gold { background-color: #c5a028 !important; }
+    .border-gold { border-color: #c5a028 !important; }
+    
+    .stat-card {
+        background: white;
+        padding: 30px;
+        margin-top: -50px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        z-index: 10;
+        position: relative;
+    }
+
+    @keyframes kenBurns {
+        from { transform: scale(1); }
+        to { transform: scale(1.1); }
+    }
+</style>
+
+<section class="hero-container text-white">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+        <div class="row">
+            <div class="col-lg-8 animate__animated animate__fadeInLeft">
+                <h6 class="text-gold fw-bold text-uppercase mb-3" style="letter-spacing: 5px;">Elite Protection Group</h6>
+                <h1 class="display-1 fw-bold mb-4" style="line-height: 0.9;">YOU ARE <span class="text-gold">SAFE</span><br>WITH US.</h1>
+                <p class="lead fs-4 mb-5 opacity-75">Professional, veteran-led security solutions for Houston's premier assets.</p>
+                <div class="d-flex gap-3">
+                    <a href="{{ url_for('contact') }}" class="btn btn-lg px-5 py-3 fw-bold" style="background-color: #c5a028; color: #0a1421; border-radius: 0; text-decoration: none;">GET A QUOTE</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container" data-aos="fade-up">
+    <div class="row stat-card g-0 text-center">
+        <div class="col-md-4 p-4 border-end">
+            <h2 class="fw-bold mb-0">100%</h2>
+            <p class="text-muted small text-uppercase mb-0">Vetted Personnel</p>
+        </div>
+        <div class="col-md-4 p-4 border-end">
+            <h2 class="fw-bold mb-0">24/7</h2>
+            <p class="text-muted small text-uppercase mb-0">Active Dispatch</p>
+        </div>
+        <div class="col-md-4 p-4">
+            <h2 class="fw-bold mb-0">Zero</h2>
+            <p class="text-muted small text-uppercase mb-0">Security Breaches</p>
+        </div>
+    </div>
+</div>
+
+
+
+<section class="py-5 my-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <img src="{{ url_for('static', filename='images/securityteam.png') }}" class="img-fluid shadow-lg border-start border-5 border-gold" alt="Our Security Team">
+            </div>
+            <div class="col-lg-6 ps-lg-5" data-aos="fade-left">
+                <h2 class="display-5 fw-bold mb-4">Integrity and <span class="text-gold">Vigilance</span></h2>
+                <p class="text-muted fs-5">We serve families and businesses that value privacy, discretion, and traditional security ethics. Our presence is a promise of safety.</p>
+                
+                <div class="mt-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-gold p-2 me-3" style="width:10px; height:10px;"></div>
+                        <div>
+                            <p class="mb-0 fw-bold">Veteran-Led Discipline</p>
+                            <small class="text-muted">Our protocols are designed by military veterans to ensure absolute order and professional conduct at every post.</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-gold p-2 me-3" style="width:10px; height:10px;"></div>
+                        <div>
+                            <p class="mb-0 fw-bold">Tri-Patrol Mobility</p>
+                            <small class="text-muted">Maximum coverage via Foot, Vehicle, and agile Scooter units for rapid response across large perimeters.</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-gold p-2 me-3" style="width:10px; height:10px;"></div>
+                        <div>
+                            <p class="mb-0 fw-bold">Discretion & Tradition</p>
+                            <small class="text-muted">We respect the privacy of conservative families and high-profile estates, maintaining a low-profile yet formidable presence.</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5">
+                    <a href="{{ url_for('contact') }}" class="btn btn-navy text-white px-4 py-2 fw-bold" style="background-color: #0b1a2a; border-radius: 0;">LEARN OUR PROTOCOLS</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-white">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h6 class="text-gold fw-bold text-uppercase tracking-widest animate__animated animate__fadeIn">Comprehensive Protection</h6>
+            <h2 class="display-5 fw-bold text-navy">Specialized Security Solutions</h2>
+            <div class="mx-auto bg-gold mt-3" style="width: 80px; height: 3px;"></div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-card position-relative overflow-hidden shadow-sm border-bottom border-5 border-navy">
+                    <img src="{{ url_for('static', filename='images/service1.png') }}" class="img-fluid w-100" alt="Tactical Foot Patrol">
+                    <div class="service-overlay p-4 d-flex flex-column justify-content-end">
+                        <h4 class="text-white fw-bold mb-2">Armed Security</h4>
+                        <p class="text-white opacity-75 small">High-touch vigilance for residential estates and corporate interiors.</p>
+                        <a href="{{ url_for('services') }}" class="btn btn-gold btn-sm w-50 rounded-0 fw-bold">DETAILS</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-card position-relative overflow-hidden shadow-sm border-bottom border-5 border-gold">
+                    <img src="{{ url_for('static', filename='images/service2.png') }}" class="img-fluid w-100" alt="Vehicle Response">
+                    <div class="service-overlay p-4 d-flex flex-column justify-content-end">
+                        <h4 class="text-white fw-bold mb-2">Unarmed Security</h4>
+                        <p class="text-white opacity-75 small">Marked units providing perimeter defense and active breach response.</p>
+                        <a href="{{ url_for('services') }}" class="btn btn-gold btn-sm w-50 rounded-0 fw-bold">DETAILS</a>
+                    </div>
+                </div>
+            </div>
+
+          
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-navy text-white overflow-hidden" style="background-color: #0a1421;">
+    <div class="container py-4">
+        <div class="row align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <h6 class="text-gold fw-bold text-uppercase tracking-widest mb-3">Operational Excellence</h6>
+                <h2 class="display-5 fw-bold mb-4">The City Guard <span class="text-gold">Standard</span></h2>
+                <p class="opacity-75 mb-5">
+                    Our Houston-based Command Center operates as a real-time tactical hub. By integrating GPS unit tracking with 24/7 active dispatch, we provide a tech-enabled shield that ensures our officers are always positioned for maximum asset protection.
+                </p>
+                
+                <div class="row g-4">
+                    <div class="col-6">
+                        <div class="mb-4">
+                            <h4 class="text-gold fw-bold mb-1">GPS</h4>
+                            <p class="small text-uppercase tracking-wider opacity-75">Live Unit Tracking</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="mb-4">
+                            <h4 class="text-gold fw-bold mb-1">24/7</h4>
+                            <p class="small text-uppercase tracking-wider opacity-75">Active Dispatch</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="mb-0">
+                            <h4 class="text-gold fw-bold mb-1">RAPID</h4>
+                            <p class="small text-uppercase tracking-wider opacity-75">Breach Response</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="mb-0">
+                            <h4 class="text-gold fw-bold mb-1">LEAD</h4>
+                            <p class="small text-uppercase tracking-wider opacity-75">Veteran Command</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 mt-5 mt-lg-0 text-center" data-aos="fade-left">
+                <img src="{{ url_for('static', filename='images/patrol.png') }}" 
+                     class="img-fluid border-start border-5 border-gold shadow-lg" 
+                     alt="Patrol Technology and Command Center"
+                     style="max-height: 500px; width: auto; object-fit: cover;">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 text-center" data-aos="zoom-in">
+    <div class="container py-5">
+        <h2 class="fw-bold mb-4">Ready to secure your peace of mind?</h2>
+        <a href="{{ url_for('contact') }}" class="btn btn-gold btn-lg px-5 py-3 fw-bold" style="background-color: #c5a028; color: #0a1421; border-radius: 0; text-decoration: none;">BOOK A FREE RISK ASSESSMENT</a>
+    </div>
+</section>
+
+
+{% endblock %}

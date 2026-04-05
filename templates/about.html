@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    .about-hero {
+        background: linear-gradient(rgba(11, 26, 42, 0.85), rgba(11, 26, 42, 0.85)), url("{{ url_for('static', filename='images/service3.png') }}");
+        background-size: cover;
+        background-position: center;
+        padding: 100px 0;
+        color: white;
+    }
+    .text-gold { color: #c5a028; }
+    .bg-navy { background-color: #0b1a2a; }
+    .tracking-widest { letter-spacing: 0.2rem; }
+</style>
+
+<section class="about-hero text-center mb-5">
+    <div class="container">
+        <h1 class="text-gold fw-bold text-uppercase tracking-widest animate__animated animate__fadeIn">ABOUT US</h1>
+        <h1 class="display-4 fw-bold animate__animated animate__fadeInDown">OUR MISSION & COMMAND</h1>
+        <p class="lead opacity-75">Veteran-Led Tactical Security for Residential and Commercial Assets</p>
+    </div>
+</section>
+
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <h6 class="text-gold fw-bold text-uppercase">Precision. Vigilance. Defense.</h6>
+                <h2 class="display-5 fw-bold mb-4">Elite Protection Specialists</h2>
+                <p class="text-muted fs-5 mb-4">
+                    Based in Houston, TX, <strong>City Guard Security LLC</strong> (Texas DPS #B31043401) is a premier security firm led by a team of seasoned veterans. We bridge the gap between basic surveillance and tactical asset protection.
+                </p>
+                <p class="text-muted mb-4">
+                    Our operational doctrine focuses on high-mobility defense. We deploy officers via 
+                    <strong>Foot Patrol</strong>, <strong>Rapid Response Vehicles</strong>, and <strong>Mobile Scooter Units</strong>, 
+                    ensuring that no perimeter is too large and no corridor is left unmonitored.
+                </p>
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="p-3 border-start border-gold border-4 bg-white shadow-sm">
+                            <h4 class="fw-bold mb-0">100%</h4>
+                            <small class="text-uppercase fw-bold">Licensed Officers</small>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="p-3 border-start border-gold border-4 bg-white shadow-sm">
+                            <h4 class="fw-bold mb-0">24/7</h4>
+                            <small class="text-uppercase fw-bold">Command Center</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="bg-navy p-5 text-white shadow-lg" style="border-left: 8px solid #c5a028;">
+                    <h4 class="fw-bold mb-4 text-gold text-uppercase tracking-widest">The City Guard Standard</h4>
+                    <p class="small opacity-75 mb-4">Our selection process is the most rigorous in Texas, ensuring only elite personnel join our ranks.</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-4 d-flex align-items-start">
+                            <span class="me-3">🛡️</span>
+                            <div>
+                                <strong>Phase 1: Background Clearance</strong>
+                                <p class="small opacity-75 m-0">Multi-state criminal history and federal screening.</p>
+                            </div>
+                        </li>
+                        <li class="mb-4 d-flex align-items-start">
+                            <span class="me-3">🛡️</span>
+                            <div>
+                                <strong>Phase 2: Integrity Screening</strong>
+                                <p class="small opacity-75 m-0">12-panel drug screening and ethics testing.</p>
+                            </div>
+                        </li>
+                        <li class="mb-4 d-flex align-items-start">
+                            <span class="me-3">🛡️</span>
+                            <div>
+                                <strong>Phase 3: Tactical Evaluation</strong>
+                                <p class="small opacity-75 m-0">Psychological stress assessment and firearms proficiency.</p>
+                            </div>
+                        </li>
+                        <li class="mb-0 d-flex align-items-start">
+                            <span class="me-3">🛡️</span>
+                            <div>
+                                <strong>Phase 4: Field Training</strong>
+                                <p class="small opacity-75 m-0">Military-grade tactics and site-specific situational response.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

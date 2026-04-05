@@ -1,0 +1,46 @@
+/* Custom Professional Security Palette */
+
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.text-navy {
+    color: #0b1a2a;
+}
+
+.navbar-brand {
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background-color: #c5a028; /* Professional Gold */
+    border-color: #c5a028;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #a3841f;
+    border-color: #a3841f;
+}
+
+.card {
+    border-radius: 10px;
+}
+
+footer {
+    border-top: 4px solid #c5a028;
+}
+
+.hover-up {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.hover-up:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
+}
+
+.text-navy { color: #0b1a2a; }
+.text-gold { color: #c5a028; }

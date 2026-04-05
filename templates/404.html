@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .error-container {
+        height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-color: #0a1421;
+        color: white;
+    }
+    .error-code {
+        font-size: 10rem;
+        font-weight: 800;
+        color: #c5a028;
+        line-height: 1;
+    }
+</style>
+
+<div class="error-container">
+    <div class="container animate__animated animate__fadeIn">
+        <h1 class="error-code">404</h1>
+        <h2 class="display-4 fw-bold mb-4">SECURE AREA: ACCESS DENIED</h2>
+        <p class="lead mb-5 opacity-75">The page you are looking for does not exist or has been moved.</p>
+        <a href="{{ url_for('index') }}" class="btn btn-gold btn-lg px-5 py-3 fw-bold">RETURN TO COMMAND CENTER</a>
+    </div>
+</div>
+{% endblock %}

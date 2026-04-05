@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .contact-hero {
+        background: linear-gradient(rgba(11, 26, 42, 0.8), rgba(11, 26, 42, 0.8)), url("{{ url_for('static', filename='images/hero.jpg') }}");
+        background-size: cover;
+        background-position: center;
+        padding: 80px 0;
+        color: white;
+    }
+    .form-control {
+        border-radius: 0;
+        border: 1px solid #dee2e6;
+        padding: 12px;
+    }
+    .form-control:focus {
+        border-color: #c5a028;
+        box-shadow: none;
+    }
+    .info-box {
+        border-left: 4px solid #c5a028;
+        background: #f8f9fa;
+        padding: 25px;
+    }
+
+    .phone-link {
+        color: #c5a028; /* Your City Guard Gold */
+        text-decoration: none;
+        font-weight: 700;
+        transition: 0.3s;
+    }
+
+    .phone-link:hover {
+        color: #0a1421; /* Your Navy Blue */
+        text-decoration: underline;
+    }
+</style>
+
+<section class="contact-hero text-center mb-5">
+    <div class="container">
+        <h1 class="display-4 fw-bold animate__animated animate__fadeInDown">GET IN TOUCH</h1>
+        <p class="lead opacity-75">Professional Security Consultations & Rapid Response Coordination</p>
+    </div>
+</section>
+
+<div class="container mb-5">
+    <div class="row g-5">
+        <div class="col-lg-7">
+            <h2 class="fw-bold mb-4">Request a Security Audit</h2>
+            <p class="text-muted mb-4">Complete the form below. A City Guard specialist will review your requirements and contact you within 24 hours.</p>
+            
+            <form action="/contact" method="POST" class="animate__animated animate__fadeInLeft">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="small fw-bold text-uppercase">Full Name</label>
+                        <input type="text" name="name" class="form-control" placeholder="John Doe" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="small fw-bold text-uppercase">Email Address</label>
+                        <input type="email" name="email" class="form-control" placeholder="john@example.com" required>
+                    </div>
+                    <div class="col-12">
+                        <label class="small fw-bold text-uppercase">Service Interest</label>
+                        <select name="service" class="form-control">
+                            <option>Risk Assessment</option>
+                            <option>Learn Our Protocal</option>
+                            <option>Inquire Services</option>
+                
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label class="small fw-bold text-uppercase">Message / Site Details</label>
+                        <textarea name="message" class="form-control" rows="5" placeholder="Please describe your security concerns..."></textarea>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-navy text-white px-5 py-3 fw-bold w-100" style="background-color: #0b1a2a; border-radius: 0;">SEND INQUIRY</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-lg-5">
+            <div class="info-box shadow-sm mb-4 animate__animated animate__fadeInRight">
+                <h5 class="fw-bold text-navy">Contact Us</h5>
+                <a href="tel:3462881126" class="phone-link">
+                    <i class="fas fa-phone-alt me-2"></i> 346 288 1126
+                </a>
+                <a href="tel:8328462488" class="phone-link">
+                    <i class="fas fa-phone-alt me-2"></i> 832 846 2488
+                </a>
+                <br>
+                <p class="small text-muted">24/7 Monitoring & Active Site Breach Response</p>
+            </div>
+
+            <div class="p-4 mb-4">
+                <h6 class="fw-bold text-uppercase tracking-widest text-gold mb-3">Headquarters</h6>
+                <p class="mb-1 text-navy fw-bold">City Guard Security Services LLC</p>
+                <p class="text-muted">6802 Bintliff Dr, Suite B<br>Houston, TX 77074</p>
+            </div>
+
+            <div class="p-4">
+                <h6 class="fw-bold text-uppercase tracking-widest text-gold mb-3">Licensing</h6>
+                <p class="small text-muted">Texas DPS Security Company License Number:
+                    <a class="phone-link">B31043401</a>                     </p>
+               
+            </div>
+
+            <div class="ratio ratio-16x9 shadow-sm">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110502.6038502306!2d-95.46109915!3d29.8174782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640b8b4488d8501%3A0xca0d02def365053b!2sHouston%2C%20TX!5e0!3m2!1sen!2sus!4v1700000000000" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
